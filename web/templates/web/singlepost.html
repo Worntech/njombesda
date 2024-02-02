@@ -1,0 +1,379 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta name="author" content="Bright">
+
+  <title>Njombe SDA</title>
+  <!-- Bootstrap CSS -->    
+  <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+  <!-- Main Style -->
+  <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+  <!-- Normalize Style -->
+  <link rel="stylesheet" href="{% static 'web/css/normalize.css' %}">
+  <!-- Fonts Awesome -->
+  <link rel="stylesheet" href="{% static 'web/css/font-awesome.min.css' %}">
+  <!-- Color Switcher -->
+  <link rel="stylesheet" href="{% static 'web/css/color-switcher.css' %}" type="text/css">
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="{% static 'web/css/animate.css' %}" type="text/css">
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="{% static 'web/css/owl.carousel.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'web/css/owl.theme.css' %}" type="text/css">
+  <!-- Rev Slider Css -->
+  <link rel="stylesheet" href="{% static 'web/css/settings.css' %}" type="text/css">
+  <!-- Nivo Lightbox Css -->
+  <link rel="stylesheet" href="{% static 'web/css/nivo-lightbox.css' %}" type="text/css">
+  <!-- Slicknav Css -->
+  <link rel="stylesheet" href="{% static 'web/css/slicknav.css' %}" type="text/css">
+  <!-- Responsive Style -->
+  <link rel="stylesheet" href="{% static 'web/css/responsive.css' %}">
+
+  <!-- Color CSS Styles  -->
+  <link rel="stylesheet" type="text/css" href="{% static 'web/css/sky.css' %}" media="screen">
+
+</head>
+<body>
+    <!-- Header area wrapper End -->
+
+    <!-- Page Header Start -->
+    <div class="page-header" style="background: url('{% static "web/images/banner1.jpg" %}');">
+      <div class="container">
+        <div class="row">         
+          <div class="col-md-12">
+            <div class="breadcrumb-wrapper">
+              <h2 class="page-title">Mafundisho</h2>
+              <a href="index.html">Home</a>
+              <span>/</span>
+              <span class="current">Mafundisho</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page Header End --> 
+
+    <!-- Start Content -->
+    <div id="content">
+      <div class="container">
+        <div class="row">
+          <!-- Start Blog Posts -->
+          <div class="col-md-8">          
+
+            <!-- Start Post -->
+            <div class="blog-post single-post">
+              <!-- Post thumb -->
+              <div class="post-thumb">
+                <a href="#"><img src="{{object.Image.url}}" alt=""></a>
+              </div>
+              <!-- End Post post-thumb -->
+
+              <!-- Post Content End -->
+              <div class="post-content">                     
+                <h4 class="post-title"><a href="#">{{object.Title}}</a></h4>
+                <div class="meta">
+                  <span class="meta-part"><a href="#"><i class="fa fa-user"></i> Will Smith</a></span>
+                  <span class="meta-part"><a href="#"><i class="fa fa-clock-o"></i>{{object.date_created}}</a></span>
+                  <span class="meta-part"><a href="#"><i class="fa fa-comment"></i> Comments 60</a></span>                  
+                </div>
+                <p>{{object.Explanation}}</p>
+
+              </div>
+              <!-- Post Content End -->
+            </div>
+            <!-- End Post -->
+
+            <!-- Author section start -->
+            <div class="author">
+
+            </div>
+            <!-- Author section end -->
+
+            <!-- Start Comment Area -->
+            <div id="comments">
+              <div class="inner-box">
+                <h3> 3 Comments</h3>
+                <ol class="comments-list">
+                  <li>
+                    <div class="media">
+                      <div class="thumb-left">
+                        <a href="#">
+                          <img alt="" src="{% static 'web/images/user1.jpg' %}">
+                        </a>
+                      </div>
+                      <div class="info-body">
+                        <div class="media-heading">
+                          <!-- Comments -->
+                          <div class="comment-form">
+                            <h3 class="comment-reply-title">Leave a comment</h3>
+                            <form method="POST" action="{% url 'viewwebsite' object.pk %}">
+                                {% csrf_token %}
+                                {{form}}
+                                <br>
+                                <button type="Submit" style="background-color: #1bbd36;color: white;font-weight: bold;margin-top: 1cm;width: 6cm;padding: 10px;border-radius: 8px;font-size: 20px;">Post comment</button>
+                                
+                            </form>
+
+
+                        </div>
+                      </div>
+
+                      <div class="info-body">
+                        {% comment %} first comment style {% endcomment %}
+                      </div>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="media">
+                          <div class="thumb-left">
+                            <a href="#">
+                              <img alt="" src="{% static 'web/images/user2.jpg' %}">
+                            </a>
+                          </div>
+                          <div class="info-body">
+                            {% for comment in post_comments %}
+                            <div class="media-heading">
+                              <h4 class="name">{{comment.user.first_name}} {{comment.user.last_name}}</h4> 
+                              <span class="comment-date">{{comment.date_created}}</span>
+                              <a href="#" class="reply-link pull-right">Reply</a>
+                            </div> 
+                            <p>{{comment.content}}</p>
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  
+                </ol>
+
+
+
+
+
+                <!-- Start Respond Form -->
+                <div id="respond">
+                  {% comment %} <h2 class="respond-title">Leave A Reply</h2>
+                  <form action="#">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <input id="author" class="form-control" name="author" type="text" value="" size="30" placeholder="Your Name">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <input class="form-control" name="author" type="text" value="" size="30" placeholder="Phone">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <input id="email" class="form-control" name="author" type="text" value="" size="30" placeholder="Email">
+                        </div>
+                      </div>                      
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <textarea id="comment" class="form-control" name="comment" cols="45" rows="8" placeholder="Massage"></textarea>
+                        </div>
+                        <button type="submit" id="submit" class="btn btn-common">Post Comment</button>
+                      </div>
+                    </div>
+                  </form> {% endcomment %}
+                </div>
+                <!-- End Respond Form -->
+
+                
+              </div>
+            </div>
+            <!-- End Comment Area -->
+
+          </div>
+          <!-- End Blog Posts -->
+
+          <!--Sidebar-->
+          <aside id="sidebar" class="col-md-4 right-sidebar">
+            <!-- Search Widget -->
+            <div class="widget widget-search">
+              <form action="#">
+                <input class="form-control" type="search" placeholder="Search...">
+                <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+              </form>
+            </div>
+          
+            <!-- Categories Widget -->
+            <div class="widget widget-categories">
+              <h5 class="widget-title">Categories</h5>
+              <ul class="cat-list">
+                <li>
+                  <i class="fa fa-angle-right"></i><a href="#">Freebies</a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right"></i><a href="#">Site Template</a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right"></i><a href="#">Online Market</a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right"></i><a href="#">Typography</a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right"></i><a href="#">Inspirations</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Popular Posts widget -->
+            <div class="widget widget-popular-posts">
+              <h5 class="widget-title">Popular Posts</h5>
+              <ul class="posts-list">
+                <li>
+                  <div class="widget-thumb">
+                    <a href="#"><img src="images/thumb-post1.jpg" alt=""></a>
+                  </div>
+                  <div class="widget-content">
+                    <span>Jun 1, 2017</span>
+                    <a href="#">Female Caucasian Insructor</a>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+                <li>
+                  <div class="widget-thumb">
+                    <a href="#"><img src="images/thumb-post2.jpg" alt=""></a>
+                  </div>
+                  <div class="widget-content">
+                    <span>Jun 1, 2017</span>
+                    <a href="#">Female Caucasian Insructor</a>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+                <li>
+                  <div class="widget-thumb">
+                    <a href="#"><img src="images/thumb-post3.jpg" alt=""></a>
+                  </div>
+                  <div class="widget-content">
+                    <span>Jun 1, 2017</span>
+                    <a href="#">Female Caucasian Insructor</a>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Archives Widget -->
+            <div class="widget widget-archives">
+              <h5 class="widget-title">Archives</h5>
+              <ul class="cat-list">
+                <li>
+                  <i class="fa fa-angle-right"></i><a href="#">Janauary 2017</a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right"></i><a href="#">Fabruary 2017</a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right"></i><a href="#">March 2017</a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right"></i><a href="#">April 2017</a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right"></i><a href="#">May 2017</a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right"></i><a href="#">June 2017</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Tag Media -->
+            <div class="widget tag">
+              <h5 class="widget-title">Tags</h5>
+              <a href="#">Wordpress</a>
+              <a href="#">psd template</a>
+              <a href="#">responsive</a>
+              <a href="#">photography</a>                  
+              <a href="#">tools</a>
+              <a href="#">HTML5</a>
+              <a href="#">workflow</a>
+              <a href="#">web development</a>
+              <a href="#">life style</a>
+            </div>
+
+            <!-- Recent Work -->
+            <div class="widget recent-work">
+              <h5 class="widget-title">Recent Work</h5>
+              <div class="flickr">
+                <ul>
+                  <li>
+                    <a href="#"><img src="images/thumb1.jpg" alt=""></a>
+                  </li>
+                  <li>                    
+                    <a href="#"><img src="images/thumb2.jpg" alt=""></a>
+                  </li>
+                  <li>                    
+                    <a href="#"><img src="images/thumb3.jpg" alt=""></a>
+                  </li>
+                  <li>                    
+                    <a href="#"><img src="images/thumb4.jpg" alt=""></a>
+                  </li>
+                  <li>                    
+                    <a href="#"><img src="images/thumb5.jpg" alt=""></a>
+                  </li>
+                  <li>                    
+                    <a href="#"><img src="images/thumb6.jpg" alt=""></a>
+                  </li>
+                </ul>           
+              </div>
+            </div>         
+
+          </aside>
+          <!--End sidebar-->
+        </div>
+      </div>
+    </div>
+    <!-- End Content -->
+
+    <!-- Footer Section -->
+    
+    <!-- Footer Section End-->
+
+    <!-- Go To Top Link -->
+    <a href="#" class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </a>
+
+    <div class="loader">
+      <div class="preloader2">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+    </div>
+
+    <!-- jQuery  -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/color-switcher.js"></script>
+    <script type="text/javascript" src="js/jquery.mixitup.js"></script>
+     <script type="text/javascript" src="js/nivo-lightbox.min.js"></script>
+    <script type="text/javascript" src="js/jquery.countdown.js"></script>  
+    <script type="text/javascript" src="js/jquery.counterup.min.js"></script>   
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script> 
+    <script type="text/javascript" src="js/form-validator.min.js"></script>
+    <script type="text/javascript" src="js/contact-form-script.js"></script>  
+    <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="js/jquery.themepunch.tools.min.js"></script>    
+    <script type="text/javascript" src="js/jquery.slicknav.js"></script>
+    <script src="js/main.js"></script>
+
+  
+</body></html>
+
+{% endblock %}

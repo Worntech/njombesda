@@ -1,0 +1,379 @@
+{% load static %}
+
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="author" content="Bright">
+
+    <title>Njombe SDA</title>
+    <!-- Bootstrap CSS -->    
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+    <!-- Normalize Style -->
+    <link rel="stylesheet" href="{% static 'web/css/normalize.css' %}">
+    <!-- Fonts Awesome -->
+    <link rel="stylesheet" href="{% static 'web/css/font-awesome.min.css' %}">
+    <!-- Color Switcher -->
+    <link rel="stylesheet" href="{% static 'web/css/color-switcher.css' %}" type="text/css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}" type="text/css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="{% static 'web/css/owl.carousel.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'web/css/owl.theme.css' %}" type="text/css">
+    <!-- Rev Slider Css -->
+    <link rel="stylesheet" href="{% static 'web/css/settings.css' %}" type="text/css">
+    <!-- Nivo Lightbox Css -->
+    <link rel="stylesheet" href="{% static 'web/css/nivo-lightbox.css' %}" type="text/css">
+    <!-- Slicknav Css -->
+    <link rel="stylesheet" href="{% static 'web/css/slicknav.css' %}" type="text/css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" href="{% static 'web/css/responsive.css' %}">
+
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'web/css/sky.css' %}" media="screen">
+
+  </head>
+  <body>
+    
+    <!-- Header area wrapper Starts -->
+    <header id="header-wrap">
+      <!-- Roof area Starts -->
+      <div id="roof" class="hidden-xs">
+          <div class="container">
+              <!-- Wellcome Starts -->
+              <div class="pull-left">
+                <i class="fa fa-map-o" aria-hidden="true"></i> P.o.box 2052, Njombe, Tanzania.
+              </div>
+              <!-- Wellcome End -->
+
+              <!-- Quick Contacts Starts -->
+              <div class="quick-contacts pull-right">
+                  <span><i class="fa fa-phone"></i> +255 624 089 128</span>
+                  <span><i class="fa fa-envelope"></i><a href="#">njombesda@gmail.com</a></span>
+                  <span><a href="{% url 'signin' %}"><i class="fa fa-user"></i> Login</a> / <a href="">Register</a></span>
+              </div>
+              <!-- Quick Contacts End -->
+          </div>
+      </div>
+      <!-- Roof area End -->
+
+      <!-- Navbar Start -->
+      <nav class="navbar navbar-default main-navigation" role="navigation" data-spy="affix" data-offset-top="50">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'web/images/logo11.png' %}" alt=""></a>
+            </div>
+            <!-- Brand End -->
+
+            <!-- Search Icon -->
+            <div class="header-search pull-right">
+                <a class="open-search">
+                    <i class="fa fa-search"></i>
+                </a>
+            </div>  
+            <!-- Collapse Navbar -->
+            <div class="collapse navbar-collapse" id="navbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown dropdown-toggle">
+                  <a class="" href="{% url 'home' %}" data-toggle="">Nyumbani <i class=""></i></a>                    
+                </li>
+                {% comment %} <li class="dropdown dropdown-toggle">
+                  <a class="" href="{% url 'mafundisho' %}" data-toggle="">Mafundisho <i class=""></i></a>                    
+                </li> {% endcomment %}
+                
+                <li class="dropdown dropdown-toggle">
+                    <a href="#" data-toggle="dropdown">Huduma<i class="fa fa-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{% url 'news' %}">Vitabu</a></li>  
+                      <li><a href="{% url 'matangazo' %}">Matangazo</a></li>
+                      <li><a href="{% url 'mafundisho' %}">Mafundisho</a></li>
+                      <li><a href="{% url 'mafundisho' %}">Matukio</a></li>
+                    </ul>                        
+                </li>
+                <li class="dropdown dropdown-toggle">
+                  <a href="#" data-toggle="dropdown">Weka Vitu<i class="fa fa-angle-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url 'matangazopost' %}">Weka matangazo</a></li>  
+                    <li><a href="{% url 'mafundishopost' %}">Weka Mafundisho</a></li>
+                    <li><a href="{% url 'mafundisho' %}">Weka Vitabu</a></li>
+                    <li><a href="{% url 'mafundisho' %}">Weka Matukio</a></li>
+                  </ul>           
+              </li>
+                <li class="dropdown dropdown-toggle">
+                  <a href="#" data-toggle="dropdown">Washiriki <i class="fa fa-angle-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url 'washiriki' %}">Washiriki</a></li>                 
+                    <li><a href="#">Ubatizo</a></li>
+                    <li><a href="#">Shule ya Sabato</a></li>
+                    <li><a href="#">Viongozi</a></li>
+
+                    <li><a href="{% url 'ongezawashiriki' %}">Sajili akaunti ya Mshiriki</a></li>            
+                    <li><a href="{% url 'ongezashuleyasabato' %}">Sajili akaunti ya S/Sabato</a></li>
+                    <li><a href="{% url 'ongezaubatizo' %}">Sajili akaunti ya Ubatizo</a></li>
+                    <li><a href="{% url 'ongezaviongozi' %}">Sajili akaunti ya Viongozi</a></li>
+                    <li><a href="{% url 'washirikipost' %}">Ongeza Taarifa za Mshiriki</a></li>
+
+                    <li><a href="{% url 'washirikipost' %}">Badili mamlaka ya mshiriki</a></li>
+                    <li><a href="{% url 'washirikipost' %}">Badili mamlaka ya kiongozi</a></li>
+                  </ul>                        
+                </li>
+
+                <li class="dropdown dropdown-toggle">
+                  <a href="#" data-toggle="dropdown">Akaunti <i class="fa fa-angle-down"></i></a>
+                  <ul class="dropdown-menu">
+                    
+
+                    <li><a href="{% url 'mafundisho' %}">Akaunti Yangu</a></li>
+                    <li><a href="{% url 'mafundisho' %}">Badili Neno la Siri</a></li>
+                    <li><a href="{% url 'mafundisho' %}">Ondoka</a></li>
+                  </ul>                        
+                </li>
+
+                {% comment %} <li><a href="{% url 'courses' %}">Taarifa</a></li> {% endcomment %}
+                <li><a href="{% url 'aboutus' %}">Kuhusu</a></li>        
+                <li><a href="{% url 'contactus' %}">Wasiliana Nasi</a></li>
+              </ul>
+            </div>  
+             <!-- Form for navbar search area -->
+            <form class="full-search">
+              <div class="container">
+                <div class="row">
+                  <input class="form-control" type="text" placeholder="Search">
+                  <a class="close-search">
+                  <span class="fa fa-times">
+                  </span>
+                  </a>
+                </div>
+              </div>
+            </form>
+            <!-- Search form ends -->   
+
+            <!-- Mobile Menu Start -->
+            <ul class="wpb-mobile-menu">
+              <li>
+                <a class="" href="{% url 'home' %}">Nyumbani</a>
+              </li>
+              <li><a href="{% url 'mafundisho' %}">Mafundisho</a></li>
+              <li>
+                <a href="#">Huduma</a>
+                <ul>
+                    <li><a href="{% url 'certificatecourses' %}">Vitabu</a></li>    
+                    <li><a href="{% url 'bachelorcourses' %}">Matangazo</a></li>  
+                    <li><a href="{% url 'mastercourses' %}">Mafundisho</a></li>
+                    <li><a href="{% url 'mastercourses' %}">Matukio</a></li>
+                </ul>                        
+              </li>
+              <li>
+                <a href="#">Weka Vitu</a>
+                <ul>
+                    <li><a href="{% url 'matangazopost' %}">Weka Matangazo</a></li>
+                    <li><a href="{% url 'mafundishopost' %}">Weka Mafundisho</a></li>
+                    <li><a href="{% url 'mastercourses' %}">Weka Vitabu</a></li>
+                    <li><a href="{% url 'mastercourses' %}">Weka Matukio</a></li>
+                </ul>                        
+              </li>
+              <li>
+                <a href="#">Washiriki</a>
+                <ul>
+                  <li><a href="{% url 'washiriki' %}">Washiriki</a></li>                 
+                  <li><a href="#">Ubatizo</a></li>
+                  <li><a href="#">Shule ya Sabato</a></li>
+                  <li><a href="#">Viongozi</a></li>
+
+                  <li><a href="{% url 'ongezawashiriki' %}">Sajili akaunti ya Mshiriki</a></li>            
+                  <li><a href="{% url 'ongezashuleyasabato' %}">Sajili akaunti ya S/Sabato</a></li>
+                  <li><a href="{% url 'ongezaubatizo' %}">Sajili akaunti ya Ubatizo</a></li>
+                  <li><a href="{% url 'ongezaviongozi' %}">Sajili akaunti ya Viongozi</a></li>
+                  <li><a href="{% url 'washirikipost' %}">Ongeza Taarifa za Mshiriki</a></li>
+
+                  <li><a href="{% url 'washirikipost' %}">Badili mamlaka ya mshiriki</a></li>
+                  <li><a href="{% url 'washirikipost' %}">Badili mamlaka ya kiongozi</a></li>
+                </ul>                        
+              </li>
+
+              <li>
+                <a href="#">Akaunti</a>
+                <ul>
+                  <li><a href="{% url 'mafundisho' %}">Ongeza Mshiriki</a></li>                 
+                    <li><a href="{% url 'mafundisho' %}">Ongeza Shule ya Sabato</a></li>
+                    <li><a href="{% url 'mafundisho' %}">Ongeza Ubatizo</a></li>
+
+                    <li><a href="{% url 'mafundisho' %}">Akaunti Yangu</a></li>
+                    <li><a href="{% url 'mafundisho' %}">Badili Neno la Siri</a></li>
+                    <li><a href="{% url 'mafundisho' %}">Ondoka</a></li>
+                </ul>                        
+              </li>
+
+              {% comment %} <li>
+                <a href="#">Pages</a>
+                <ul>
+                  <li><a href="about.html">About Page</a></li>                     
+                  <li><a href="gallery.html">Image Gallery</a></li>
+                  <li><a href="faq.html">FAQ</a></li>    
+                  <li><a href="login.html">Login Page</a></li> 
+                  <li><a href="single-teacher.html">Single Teacher</a></li> 
+                  <li><a href="registration.html">Registration Form</a></li> 
+                  <li><a href="contact.html">Contacts</a></li> 
+                  <li><a href="404.html">404</a></li> 
+                </ul>                        
+              </li> {% endcomment %}
+
+              <li><a href="{% url 'aboutus' %}">Kuhusu</a></li>  
+              <li><a href="{% url 'contactus' %}">Wasiliana Nasi</a></li>      
+            </ul>
+            <!-- Mobile Menu End -->
+
+          </div>
+      </nav>
+      <!-- Navbar End -->
+
+    </header>
+    <!-- Header area wrapper End -->
+
+    {% block content %}
+    
+
+
+    {% endblock %}
+    <!-- Footer Section -->
+    <footer>
+      <!-- Container Starts -->
+      <div class="container">
+        <!-- Row Starts -->
+        <div class="row">
+          <!-- Footer Widget Starts -->
+          <div class="footer-widget col-md-3 col-sm-6 col-xs-12">
+            <h3 class="small-title">
+              Mawasiliano
+            </h3>
+            <p>
+              Kanisa la  Waadventista Wasabato, Njombe SDA.
+            </p>  
+            <ul class="address">
+                <li><i class="fa fa-home"></i> P.O.BOX 2052, Njombe</li>
+                <li><i class="fa fa-phone"></i> +255 624 089 128</li>
+                <li><i class="fa fa-envelope"></i> njombesda@gmail.com</li>
+            </ul>        
+          </div><!-- Footer Widget Ends -->
+          
+          <!-- Footer Widget Starts -->
+          <div class="footer-widget col-md-3 col-sm-6 col-xs-12">
+            <h3 class="small-title">
+              Taarifa za Karibuni
+            </h3>
+            <ul class="recent-post">
+              <li class="post">
+                <a href="{% static 'web/assets/img/flicker/njombe1.jpg' %}" class="lightbox">
+                <img alt="" src="{% static 'web/images/njombe2.jpg' %}">
+                </a>
+                <p class="text">Shule ya kanisa la Njombe SDA<br><span>Nov 05,2016</span></p>
+              </li>
+              <li class="post">
+                <a href="{% static 'web/assets/img/flicker/njombe3.jpg' %}" class="lightbox">
+                <img alt="" src="{% static 'web/images/njombe4.jpg' %}">
+                </a>
+                <p class="text">Watoto wafanya matembezi <br><span>Nov 09,2016</span></p>
+              </li>
+            </ul>
+          </div>
+          <!-- Footer Widget Ends -->        
+
+          <!-- Footer Widget Starts -->
+          <div class="footer-widget col-md-3 col-sm-6 col-xs-12">
+            <h3 class="small-title">
+              Tembea haraka
+            </h3>
+            <ul class="list">
+              <li><a href="#">Nyumbani</a></li>
+              <li><a href="#">Wasiliana nasi</a></li>
+              <li><a href="#">Kuhusu sisi</a></li>
+              <li><a href="#">Mafundisho</a></li>
+              <li><a href="#">Matangazo</a></li>
+            </ul>
+          </div>
+          <!-- Footer Widget Ends -->
+
+          <!-- Footer Widget Starts -->
+          <div class="footer-widget col-md-3 col-sm-6 col-xs-12">
+            <h3 class="small-title">
+              Chuo cha picha
+            </h3>
+            <div class="plain-flicker-gallery">
+              <a href="#" title="Pan Masala"><img src="{% static 'web/images/njombe5.jpg' %}" alt=""></a>
+              <a href="#" title="Sports Template for Joomla"><img src="{% static 'web/images/njombe6.jpg' %}" alt=""></a>
+              <a href="" title="Apple Keyboard"><img src="{% static 'web/images/njombe7.jpg' %}" alt=""></a>
+              <a href="" title="Hard Working"><img src="{% static 'web/images/njombe8.jpg' %}" alt=""></a>
+              <a href="" title="Smile"><img src="{% static 'web/images/njombe9.jpg' %}" alt=""></a>
+              <a href="" title="Puzzle"><img src="{% static 'web/images/njombe10.jpg' %}" alt=""></a>
+            </div>
+          </div><!-- Footer Widget Ends -->
+        </div><!-- Row Ends -->
+      </div><!-- Container Ends -->
+      
+      <!-- Copyright -->
+      <div id="copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6  col-sm-6">
+              <p class="copyright-text">
+                © Haki zote zimehifadhiwa 2024 - Imeandaliwa &amp; Kutengenezwa na <a href="http://www.worntech.com">Worntech || Technology Center</a>
+              </p>
+            </div>
+            <div class="col-md-6  col-sm-6">                
+              <div class="bottom-social-icons pull-right">  
+                <a class="facebook" target="_blank" href="https://web.facebook.com/GrayGrids"><i class="fa fa-facebook"></i></a> 
+                <a class="twitter" target="_blank" href="https://twitter.com/GrayGrids"><i class="fa fa-twitter"></i></a>
+                <a class="google-plus" target="_blank" href="https://plus.google.com"><i class="fa fa-google-plus"></i></a>
+                <a class="linkedin" target="_blank" href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>
+              </div>            
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright  End-->
+      
+    </footer>
+    <!-- Footer Section End-->
+
+    <!-- Go To Top Link -->
+    <a href="#" class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </a>
+
+    {% comment %} <div class="loader">
+      <div class="preloader2">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+    </div> {% endcomment %}
+
+    <!-- jQuery  -->
+    <script type="text/javascript" src="{% static 'web/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/js/color-switcher.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/js/jquery.mixitup.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/js/nivo-lightbox.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/js/jquery.countdown.js' %}"></script>  
+    <script type="text/javascript" src="{% static 'web/js/jquery.counterup.min.js' %}"></script>   
+    <script type="text/javascript" src="{% static 'web/js/owl.carousel.min.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'web/js/form-validator.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/js/contact-form-script.js' %}"></script>  
+    <script type="text/javascript" src="{% static 'web/js/jquery.themepunch.revolution.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/js/jquery.themepunch.tools.min.js' %}"></script>    
+    <script type="text/javascript" src="{% static 'web/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+
+  
+</body></html>

@@ -1,0 +1,124 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta name="author" content="Bright">
+
+  <title>Njombe SDA</title>
+  <!-- Bootstrap CSS -->    
+  <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+  <!-- Main Style -->
+  <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+  <!-- Normalize Style -->
+  <link rel="stylesheet" href="{% static 'web/css/normalize.css' %}">
+  <!-- Fonts Awesome -->
+  <link rel="stylesheet" href="{% static 'web/css/font-awesome.min.css' %}">
+  <!-- Color Switcher -->
+  <link rel="stylesheet" href="{% static 'web/css/color-switcher.css' %}" type="text/css">
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="{% static 'web/css/animate.css' %}" type="text/css">
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="{% static 'web/css/owl.carousel.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'web/css/owl.theme.css' %}" type="text/css">
+  <!-- Rev Slider Css -->
+  <link rel="stylesheet" href="{% static 'web/css/settings.css' %}" type="text/css">
+  <!-- Nivo Lightbox Css -->
+  <link rel="stylesheet" href="{% static 'web/css/nivo-lightbox.css' %}" type="text/css">
+  <!-- Slicknav Css -->
+  <link rel="stylesheet" href="{% static 'web/css/slicknav.css' %}" type="text/css">
+  <!-- Responsive Style -->
+  <link rel="stylesheet" href="{% static 'web/css/responsive.css' %}">
+
+  <!-- Color CSS Styles  -->
+  <link rel="stylesheet" type="text/css" href="{% static 'web/css/sky.css' %}" media="screen">
+
+</head>
+<body>
+    <!-- Header area wrapper End -->
+
+    <!-- Start Content Section -->
+    <section id="content" class="error-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="error-page">
+                {% for m in messages %}
+                <p style="color:rgb(10, 159, 79)">{{m}}</p>
+                {% endfor %}
+                <h4>ONGEZA WASHIRIKI</h4>
+    
+                <form method="POST" enctype="multipart/form-data">
+                
+                    {% csrf_token %}
+                    {{ubatizopost.as_p}}
+            
+            
+            
+                    <input type="submit" class="buttons" value="Hifadhi Taarifa">
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-8">
+              <h3>Jiunge na shule ya njombe adventist primary school.</h3>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <a href="#" class="btn btn-border">Wasiliana Nasi</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- End Content Section  -->
+
+    <!-- Footer Section -->
+
+
+
+    
+    <!-- Footer Section End-->
+
+    <!-- Go To Top Link -->
+    <a href="#" class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </a>
+
+    <div class="loader">
+      <div class="preloader2">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+    </div>
+
+    <!-- jQuery  -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/color-switcher.js"></script>
+    <script type="text/javascript" src="js/jquery.mixitup.js"></script>
+     <script type="text/javascript" src="js/nivo-lightbox.min.js"></script>
+    <script type="text/javascript" src="js/jquery.countdown.js"></script>  
+    <script type="text/javascript" src="js/jquery.counterup.min.js"></script>   
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script> 
+    <script type="text/javascript" src="js/form-validator.min.js"></script>
+    <script type="text/javascript" src="js/contact-form-script.js"></script>  
+    <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="js/jquery.themepunch.tools.min.js"></script>    
+    <script type="text/javascript" src="js/jquery.slicknav.js"></script>
+    <script src="js/main.js"></script>
+
+  
+</body></html>
+
+{% endblock %}
